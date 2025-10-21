@@ -1,0 +1,14 @@
+# Zephyr and build artifacts
+build/
+*.bin
+*.elf
+*.exe
+*.hex
+*.map
+*.out
+*.zip
+
+# Visual Studio / VS Code
+.vscode/
+*.user
+*.suo
