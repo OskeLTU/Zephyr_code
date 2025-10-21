@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "name": "Zephyr",
+            "intelliSenseMode": "windows-gcc-arm",
+            "compilerPath": "C:/ncs/toolchains/c1a76fddb2/opt/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc.exe",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
