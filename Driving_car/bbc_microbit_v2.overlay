@@ -19,6 +19,15 @@
         gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>; // edgeconnector P3;
         label = "Motor B IN2";
     };
+    pwm_motors {
+        compatible = "pwm-leds";
+        motor_a_speed: motor_a_speed{
+            pwms = <&pwm0 0 50000 0>;
+        };
+        motor_b_speed: motor_b_speed{
+            pwms = <&pwm1 0 50000 0>;
+        };
+    };
 };
     
 
@@ -62,14 +71,14 @@
     };
 };
 
-motor_a_speed: &pwm0 {
+&pwm0 {
     status = "okay";
     pinctrl-0 = <&pwm0_default_alt>;
     pinctrl-1 = <&pwm0_sleep_alt>;
     pinctrl-names = "default", "sleep";
     label = "PWM_0";
 };
-motor_b_speed: &pwm1 {
+&pwm1 {
     status = "okay";
     pinctrl-0 = <&pwm1_default_alt>;
     pinctrl-1 = <&pwm1_sleep_alt>;
