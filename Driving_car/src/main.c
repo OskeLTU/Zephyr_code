@@ -12,7 +12,10 @@ static const struct gpio_dt_spec motor_b_in2 = GPIO_DT_SPEC_GET(DT_NODELABEL(mot
 static const struct pwm_dt_spec motor_a_speed = PWM_DT_SPEC_GET(DT_NODELABEL(motor_a_speed));
 static const struct pwm_dt_spec motor_b_speed = PWM_DT_SPEC_GET(DT_NODELABEL(motor_b_speed));
 
+
+
+
 int main(void)
 {
-    
+
 }

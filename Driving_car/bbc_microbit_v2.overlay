@@ -1,24 +1,28 @@
 /{
-    motor_a_in1: motor_a_in1 {
+    motor_direction_pins{
         compatible = "gpio-leds";
-        gpios = <&gpio0 2 GPIO_ACTIVE_HIGH>; // edgeconnector P0;
-        label = "Motor A IN1";
+        motor_a_in1: motor_a_in1 {
+            
+            gpios = <&gpio0 2 0>; // edgeconnector P0;
+            label = "Motor A IN1";
+        };
+        motor_a_in2: motor_a_in2 {
+            
+            gpios = <&gpio0 3 0>; // edgeconnector P1;
+            label = "Motor A IN2";
+        };
+        motor_b_in1: motor_b_in1 {
+            
+            gpios = <&gpio0 4 0>; // edgeconnector P2;
+            label = "Motor B IN1";
+        };
+        motor_b_in2: motor_b_in2 {
+            
+            gpios = <&gpio0 31 0>; // edgeconnector P3;
+            label = "Motor B IN2";
+        };
     };
-    motor_a_in2: motor_a_in2 {
-        compatible = "gpio-leds";
-        gpios = <&gpio0 3 GPIO_ACTIVE_HIGH>; // edgeconnector P1;
-        label = "Motor A IN2";
-    };
-    motor_b_in1: motor_b_in1 {
-        compatible = "gpio-leds";
-        gpios = <&gpio0 4 GPIO_ACTIVE_HIGH>; // edgeconnector P2;
-        label = "Motor B IN1";
-    };
-    motor_b_in2: motor_b_in2 {
-        compatible = "gpio-leds";
-        gpios = <&gpio0 31 GPIO_ACTIVE_HIGH>; // edgeconnector P3;
-        label = "Motor B IN2";
-    };
+
     pwm_motors {
         compatible = "pwm-leds";
         motor_a_speed: motor_a_speed{
