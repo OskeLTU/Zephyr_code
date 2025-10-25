@@ -1,36 +1,56 @@
 /{
     motor_direction_pins{
+
         compatible = "gpio-leds";
         motor_a_in1: motor_a_in1 {
-            
             gpios = <&gpio0 2 0>; // edgeconnector P0;
             label = "Motor A IN1";
         };
         motor_a_in2: motor_a_in2 {
-            
             gpios = <&gpio0 3 0>; // edgeconnector P1;
             label = "Motor A IN2";
         };
-        motor_b_in1: motor_b_in1 {
-            
+        motor_a_in3: motor_a_in3 {
             gpios = <&gpio0 4 0>; // edgeconnector P2;
+            label = "Motor A IN3";
+        };
+        motor_a_in4: motor_a_in4 {
+            gpios = <&gpio0 31 0>; // edgeconnector P3;
+            label = "Motor A IN4";
+        };
+        motor_b_in1: motor_b_in1 {
+            gpios = <&gpio0 28 0>; // edgeconnector P4
             label = "Motor B IN1";
         };
         motor_b_in2: motor_b_in2 {
-            
-            gpios = <&gpio0 31 0>; // edgeconnector P3;
+            gpios = <&gpio1 5 0>; // edgeconnector P6
             label = "Motor B IN2";
+        };
+        motor_b_in3: motor_b_in3 {
+            gpios = <&gpio0 11 0>; // edgeconnector P7;
+            label = "Motor B IN3";
+        };
+        motor_b_in4: motor_b_in4 {
+            gpios = <&gpio0 10 0>; // edgeconnector P8;
+            label = "Motor B IN4";
         };
     };
 
     pwm_motors {
         compatible = "pwm-leds";
-        motor_a_speed: motor_a_speed{
+        motor_a_front_speed: motor_a_front_speed{
             pwms = <&pwm0 0 50000 0>;
         };
-        motor_b_speed: motor_b_speed{
-            pwms = <&pwm1 0 50000 0>;
+        motor_a_back_speed: motor_a_back_speed{
+            pwms = <&pwm1 1 50000 0>;
         };
+        motor_b_back_speed: motor_b_back_speed{
+            pwms = <&pwm2 1 50000 0>;
+        };
+        motor_b_front_speed: motor_b_front_speed{
+            pwms = <&pwm3 0 50000 0>;
+        };
+        
     };
 };
     
@@ -73,6 +93,34 @@
             low-power-enable;
         };
     };
+
+    pwm2_default_alt: pwm2_default_alt {
+        group1 {
+            psels = <NRF_PSEL(PWM_OUT2, 0, 9)>; //on edgeconnector P9
+            nordic,invert;
+        };
+    };
+
+    pwm2_sleep_alt: pwm2_sleep_alt {
+        group1 {
+            psels = <NRF_PSEL(PWM_OUT2, 0, 9)>; //on edgeconnector P9
+            low-power-enable;
+        };
+    };
+
+    pwm3_default_alt: pwm3_default_alt {
+        group1 {
+            psels = <NRF_PSEL(PWM_OUT3, 0, 30)>; //on edgeconnector P10
+            nordic,invert;
+        };
+    };
+
+    pwm3_sleep_alt: pwm3_sleep_alt {
+        group1 {
+            psels = <NRF_PSEL(PWM_OUT3, 0, 30)>; //on edgeconnector P10
+            low-power-enable;
+        };
+    };
 };
 
 &pwm0 {
@@ -88,5 +136,19 @@
     pinctrl-1 = <&pwm1_sleep_alt>;
     pinctrl-names = "default", "sleep";
     label = "PWM_1";
+};
+&pwm2 {
+    status = "okay";
+    pinctrl-0 = <&pwm2_default_alt>;
+    pinctrl-1 = <&pwm2_sleep_alt>;
+    pinctrl-names = "default", "sleep";
+    label = "PWM_2";
+};
+&pwm3 {
+    status = "okay";
+    pinctrl-0 = <&pwm3_default_alt>;
+    pinctrl-1 = <&pwm3_sleep_alt>;
+    pinctrl-names = "default", "sleep";
+    label = "PWM_3";
 };
 
