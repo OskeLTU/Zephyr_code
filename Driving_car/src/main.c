@@ -49,48 +49,48 @@ int main(void)
 
     /* --- 4. CONTROL LOOP --- */
     while (1) {
-        // --- Motors forward at 100% speed ---
-        gpio_pin_set_dt(&motor_a_in1, 1); // Motor A Forward (IN1=HIGH, IN2=LOW)
-        gpio_pin_set_dt(&motor_a_in2, 0); 
-        pwm_set_dt(&motor_a_front_speed, period_ns, duty_50);
-        printk("Motor A Front Speed set to 50%%\n");
+        // // --- Motors forward at 100% speed ---
+        // gpio_pin_set_dt(&motor_a_in1, 1); // Motor A Forward (IN1=HIGH, IN2=LOW)
+        // gpio_pin_set_dt(&motor_a_in2, 0); 
+        // pwm_set_dt(&motor_a_front_speed, period_ns, duty_50);
+        // printk("Motor A Front Speed set to 50%%\n");
 
-        gpio_pin_set_dt(&motor_a_in3, 1);
-        gpio_pin_set_dt(&motor_a_in4, 0);
-        pwm_set_dt(&motor_a_back_speed, period_ns, duty_50);
-        printk("Motor A Back Speed set to 50%%\n");
+        // gpio_pin_set_dt(&motor_a_in3, 1);
+        // gpio_pin_set_dt(&motor_a_in4, 0);
+        // pwm_set_dt(&motor_a_back_speed, period_ns, duty_50);
+        // printk("Motor A Back Speed set to 50%%\n");
 
-        gpio_pin_set_dt(&motor_b_in1, 1); // Motor B Forward (IN3=HIGH, IN4=LOW)
-        gpio_pin_set_dt(&motor_b_in2, 0);
-        pwm_set_dt(&motor_b_front_speed, period_ns, duty_50);
-        printk("Motor B Front Speed set to 50%%\n");
+        // gpio_pin_set_dt(&motor_b_in1, 1); // Motor B Forward (IN3=HIGH, IN4=LOW)
+        // gpio_pin_set_dt(&motor_b_in2, 0);
+        // pwm_set_dt(&motor_b_front_speed, period_ns, duty_50);
+        // printk("Motor B Front Speed set to 50%%\n");
 
-        gpio_pin_set_dt(&motor_b_in3, 1);
-        gpio_pin_set_dt(&motor_b_in4, 0);
-        pwm_set_dt(&motor_b_back_speed, period_ns, duty_50);
-        printk("Motor B Back Speed set to 50%%\n");
+        // gpio_pin_set_dt(&motor_b_in3, 1);
+        // gpio_pin_set_dt(&motor_b_in4, 0);
+        // pwm_set_dt(&motor_b_back_speed, period_ns, duty_50);
+        // printk("Motor B Back Speed set to 50%%\n");
 
-        k_msleep(3000); // Run forward for 3 seconds
+        // k_msleep(3000); // Run forward for 3 seconds
 
-        gpio_pin_set_dt(&motor_a_in1, 1); // Motor A Forward (IN1=HIGH, IN2=LOW)
-        gpio_pin_set_dt(&motor_a_in2, 0); 
-        pwm_set_dt(&motor_a_front_speed, period_ns, duty_25);
-        printk("Motor A Front Speed set to 25%%\n");
+        // gpio_pin_set_dt(&motor_a_in1, 1); // Motor A Forward (IN1=HIGH, IN2=LOW)
+        // gpio_pin_set_dt(&motor_a_in2, 0); 
+        // pwm_set_dt(&motor_a_front_speed, period_ns, duty_25);
+        // printk("Motor A Front Speed set to 25%%\n");
 
-        gpio_pin_set_dt(&motor_a_in3, 1);
-        gpio_pin_set_dt(&motor_a_in4, 0);
-        pwm_set_dt(&motor_a_back_speed, period_ns, duty_25);
-        printk("Motor A Back Speed set to 25%%\n");
+        // gpio_pin_set_dt(&motor_a_in3, 1);
+        // gpio_pin_set_dt(&motor_a_in4, 0);
+        // pwm_set_dt(&motor_a_back_speed, period_ns, duty_25);
+        // printk("Motor A Back Speed set to 25%%\n");
 
-        gpio_pin_set_dt(&motor_b_in1, 1); // Motor B Forward (IN3=HIGH, IN4=LOW)
-        gpio_pin_set_dt(&motor_b_in2, 0);
-        pwm_set_dt(&motor_b_front_speed, period_ns, duty_25);
-        printk("Motor B Front Speed set to 25%%\n");
+        // gpio_pin_set_dt(&motor_b_in1, 1); // Motor B Forward (IN3=HIGH, IN4=LOW)
+        // gpio_pin_set_dt(&motor_b_in2, 0);
+        // pwm_set_dt(&motor_b_front_speed, period_ns, duty_25);
+        // printk("Motor B Front Speed set to 25%%\n");
 
-        gpio_pin_set_dt(&motor_b_in3, 1);
-        gpio_pin_set_dt(&motor_b_in4, 0);
-        pwm_set_dt(&motor_b_back_speed, period_ns, duty_25);
-        printk("Motor B Back Speed set to 25%%\n");
+        // gpio_pin_set_dt(&motor_b_in3, 1);
+        // gpio_pin_set_dt(&motor_b_in4, 0);
+        // pwm_set_dt(&motor_b_back_speed, period_ns, duty_25);
+        // printk("Motor B Back Speed set to 25%%\n");
 
         k_msleep(3000); // Stop for 1 second
 
