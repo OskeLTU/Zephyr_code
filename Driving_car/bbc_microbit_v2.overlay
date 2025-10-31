@@ -3,7 +3,7 @@
 
         compatible = "gpio-leds";
         motor_a_in1: motor_a_in1 {
-            gpios = <&gpio0 2 0>; // edgeconnector P0;
+            gpios = <&gpio0 30 0>; // edgeconnector P0;
             label = "Motor A IN1";
         };
         motor_a_in2: motor_a_in2 {
@@ -35,23 +35,6 @@
             label = "Motor B IN4";
         };
     };
-
-    pwm_motors {
-        compatible = "pwm-leds";
-        motor_a_front_speed: motor_a_front_speed{
-            pwms = <&pwm0 0 50000 0>;
-        };
-        motor_a_back_speed: motor_a_back_speed{
-            pwms = <&pwm1 1 50000 0>;
-        };
-        motor_b_back_speed: motor_b_back_speed{
-            pwms = <&pwm2 1 50000 0>;
-        };
-        motor_b_front_speed: motor_b_front_speed{
-            pwms = <&pwm3 0 50000 0>;
-        };
-        
-    };
 };
     
 
@@ -59,23 +42,15 @@
 
 
 &pinctrl {
-    // spi1_default: spi1_default {
-    //     group1 {
-    //         psels = <NRF_PSEL(SPIM_MOSI, 0, 13)>, //on edgeconnector P15
-    //                 <NRF_PSEL(SPIM_MISO, 0, 1)>, //on edgeconnector P14
-    //                 <NRF_PSEL(SPIM_SCK,  0, 17)>; //on edgeconnector P13
-    //     };
-    // };
-    
     pwm0_default_alt: pwm0_default_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 26)>; //on edgeconnector P19
+            psels = <NRF_PSEL(PWM_OUT0, 0, 2)>; //on edgeconnector P19
             nordic,invert;
         };
     };
     pwm0_sleep_alt: pwm0_sleep_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 26)>; //on edgeconnector P19
+            psels = <NRF_PSEL(PWM_OUT0, 0, 2)>; //on edgeconnector P19
             low-power-enable;
         };
     };
@@ -110,14 +85,14 @@
 
     pwm3_default_alt: pwm3_default_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT3, 0, 30)>; //on edgeconnector P10
+            psels = <NRF_PSEL(PWM_OUT3, 0, 35)>; //on edgeconnector P10
             nordic,invert;
         };
     };
 
     pwm3_sleep_alt: pwm3_sleep_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT3, 0, 30)>; //on edgeconnector P10
+            psels = <NRF_PSEL(PWM_OUT3, 0, 35)>; //on edgeconnector P10
             low-power-enable;
         };
     };
