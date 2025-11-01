@@ -3,35 +3,35 @@
 
         compatible = "gpio-leds";
         motor_a_in1: motor_a_in1 {
-            gpios = <&gpio0 30 0>; // edgeconnector P0;
+            gpios = <&gpio0 28 0>; // edgeconnector P4;
             label = "Motor A IN1";
         };
         motor_a_in2: motor_a_in2 {
-            gpios = <&gpio0 3 0>; // edgeconnector P1;
+            gpios = <&gpio1 5 0>; // edgeconnector P6;
             label = "Motor A IN2";
         };
         motor_a_in3: motor_a_in3 {
-            gpios = <&gpio0 4 0>; // edgeconnector P2;
+            gpios = <&gpio0 11 0>; // edgeconnector P7;
             label = "Motor A IN3";
         };
         motor_a_in4: motor_a_in4 {
-            gpios = <&gpio0 31 0>; // edgeconnector P3;
+            gpios = <&gpio0 10 0>; // edgeconnector P8;
             label = "Motor A IN4";
         };
         motor_b_in1: motor_b_in1 {
-            gpios = <&gpio0 28 0>; // edgeconnector P4
+            gpios = <&gpio0 9 0>; // edgeconnector P9
             label = "Motor B IN1";
         };
         motor_b_in2: motor_b_in2 {
-            gpios = <&gpio1 5 0>; // edgeconnector P6
+            gpios = <&gpio0 30 0>; // edgeconnector P10
             label = "Motor B IN2";
         };
         motor_b_in3: motor_b_in3 {
-            gpios = <&gpio0 9 0>; // edgeconnector P7;
+            gpios = <&gpio0 12 0>; // edgeconnector P12;
             label = "Motor B IN3";
         };
         motor_b_in4: motor_b_in4 {
-            gpios = <&gpio0 9 0>; // edgeconnector P8;
+            gpios = <&gpio0 17 0>; // edgeconnector P13;
             label = "Motor B IN4";
         };
     };
@@ -44,55 +44,55 @@
 &pinctrl {
     pwm0_default_alt: pwm0_default_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 12)>; //on edgeconnector P12
+            psels = <NRF_PSEL(PWM_OUT0, 0, 2)>; //on edgeconnector P0
             nordic,invert;
         };
     };
     pwm0_sleep_alt: pwm0_sleep_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 12)>; //on edgeconnector P12
+            psels = <NRF_PSEL(PWM_OUT0, 0, 2)>; //on edgeconnector P0
             low-power-enable;
         };
     };
 
     pwm1_default_alt: pwm1_default_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT1, 1, 2)>; //on edgeconnector P16
+            psels = <NRF_PSEL(PWM_OUT1, 0, 3)>; //on edgeconnector P1
             nordic,invert;
         };
     };
 
     pwm1_sleep_alt: pwm1_sleep_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT1, 1, 2)>; //on edgeconnector P16
+            psels = <NRF_PSEL(PWM_OUT1, 0, 3)>; //on edgeconnector P1
             low-power-enable;
         };
     };
 
     pwm2_default_alt: pwm2_default_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 2)>; //on edgeconnector P9
+            psels = <NRF_PSEL(PWM_OUT2, 0, 4)>; //on edgeconnector P2
             nordic,invert;
         };
     };
 
     pwm2_sleep_alt: pwm2_sleep_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 2)>; //on edgeconnector P9
+            psels = <NRF_PSEL(PWM_OUT2, 0, 4)>; //on edgeconnector P2
             low-power-enable;
         };
     };
 
     pwm3_default_alt: pwm3_default_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 30)>; //on edgeconnector P10
+            psels = <NRF_PSEL(PWM_OUT3, 0, 31)>; //on edgeconnector P3
             nordic,invert;
         };
     };
 
     pwm3_sleep_alt: pwm3_sleep_alt {
         group1 {
-            psels = <NRF_PSEL(PWM_OUT0, 0, 30)>; //on edgeconnector P10
+            psels = <NRF_PSEL(PWM_OUT3, 0, 31)>; //on edgeconnector P3
             low-power-enable;
         };
     };
