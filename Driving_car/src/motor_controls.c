@@ -34,7 +34,7 @@ static uint32_t percentage_to_pwm(uint32_t speed_percentage){
     if(speed_percentage > 100){
         speed_percentage = 100;
     }
-    return (speed_percentage * 255) / 100;
+    return (speed_percentage * pwm_period_ns) / 100;
 }
 
 int motors_start(){
