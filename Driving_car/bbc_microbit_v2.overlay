@@ -15,7 +15,7 @@
             label = "Motor A IN3";
         };
         motor_a_in4: motor_a_in4 {
-            gpios = <&gpio0 10 0>; // edgeconnector P8;
+            gpios = <&gpio0 13 0>; // edgeconnector P15;
             label = "Motor A IN4";
         };
         motor_b_in1: motor_b_in1 {
