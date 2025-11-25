@@ -103,16 +103,43 @@ void Drive_motors(Motor_direction direction, uint32_t speed_percentage){
         Stop_motors();
         return;
     }
-
-    Drive_one_motor(Motor_A_Front, direction, speed_percentage);
-    Drive_one_motor(Motor_A_Back, direction, speed_percentage);
-    Drive_one_motor(Motor_B_Front, direction, speed_percentage);
-    Drive_one_motor(Motor_B_Back, direction, speed_percentage);
+    switch(direction){
+        case Rotate_Right:
+            Drive_one_motor(Motor_Left_Front, Forward, speed_percentage);
+            Drive_one_motor(Motor_Left_Back, Forward, speed_percentage);
+            Drive_one_motor(Motor_Right_Front, Backward, speed_percentage);
+            Drive_one_motor(Motor_Right_Back, Backward, speed_percentage);
+            return;
+        case Rotate_Left:
+            Drive_one_motor(Motor_Left_Front, Backward, speed_percentage);
+            Drive_one_motor(Motor_Left_Back, Backward, speed_percentage);
+            Drive_one_motor(Motor_Right_Front, Forward, speed_percentage);
+            Drive_one_motor(Motor_Right_Back, Forward, speed_percentage);
+            return;
+        case Right:
+            Drive_one_motor(Motor_Left_Front, Forward, speed_percentage);
+            Drive_one_motor(Motor_Left_Back, Backward, speed_percentage);
+            Drive_one_motor(Motor_Right_Front, Backward, speed_percentage);
+            Drive_one_motor(Motor_Right_Back, Forward, speed_percentage);
+            return;
+        case Left:
+            Drive_one_motor(Motor_Left_Front, Backward, speed_percentage);
+            Drive_one_motor(Motor_Left_Back, Forward, speed_percentage);
+            Drive_one_motor(Motor_Right_Front, Forward, speed_percentage);
+            Drive_one_motor(Motor_Right_Back, Backward, speed_percentage);
+            return;
+        default:
+            break;
+    }
+    Drive_one_motor(Motor_Left_Front, direction, speed_percentage);
+    Drive_one_motor(Motor_Left_Back, direction, speed_percentage);
+    Drive_one_motor(Motor_Right_Front, direction, speed_percentage);
+    Drive_one_motor(Motor_Right_Back, direction, speed_percentage);
 }
 
 void Stop_motors(){
-    Drive_one_motor(Motor_A_Front, Stop, 0);
-    Drive_one_motor(Motor_A_Back, Stop, 0);
-    Drive_one_motor(Motor_B_Front, Stop, 0);
-    Drive_one_motor(Motor_B_Back, Stop, 0);
+    Drive_one_motor(Motor_Left_Front, Stop, 0);
+    Drive_one_motor(Motor_Left_Back, Stop, 0);
+    Drive_one_motor(Motor_Right_Front, Stop, 0);
+    Drive_one_motor(Motor_Right_Back, Stop, 0);
 }
