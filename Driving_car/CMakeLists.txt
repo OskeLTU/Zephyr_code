@@ -3,6 +3,6 @@ find_package(Zephyr REQUIRED HINTS $ENV{ZEPHYR_BASE})
 
 project(Driving_car)
 
-target_sources(app PRIVATE src/main.c src/pwm.c src/motor_controls.c)
+target_sources(app PRIVATE src/main.c src/pwm.c src/motor_controls.c src/bluetooth.c)
 
 
