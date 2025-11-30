@@ -15,7 +15,7 @@
             label = "Motor A IN3";
         };
         motor_a_in4: motor_a_in4 {
-            gpios = <&gpio0 10 0>; // edgeconnector P8;
+            gpios = <&gpio0 13 0>; // edgeconnector P15;
             label = "Motor A IN4";
         };
         motor_b_in1: motor_b_in1 {
@@ -96,6 +96,22 @@
             low-power-enable;
         };
     };
+
+    i2c1_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>,
+                    <NRF_PSEL(TWIM_SDA, 1, 0)>;
+        };
+    };
+
+    i2c1_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>,
+                    <NRF_PSEL(TWIM_SDA, 1, 0)>;
+                    low-power-enable;
+        };
+    };
+
 };
 
 
@@ -127,4 +143,13 @@
     pinctrl-names = "default", "sleep";
     label = "PWM_3";
 };
+
+&i2c1 {
+    compatible = "nordic,nrf-twim";
+    status = "okay";
+    pinctrl-0 = <&i2c1_default>;
+    pinctrl-1 = <&i2c1_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
 
