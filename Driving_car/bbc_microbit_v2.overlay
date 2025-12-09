@@ -36,7 +36,11 @@
         };
     };
 };
-    
+
+&i2c1 { status = "disabled"; };
+&spi1 { status = "disabled"; };
+&adc { status = "disabled"; };
+
 
 
 
@@ -97,21 +101,20 @@
         };
     };
 
-    i2c1_default: i2c0_default {
+    uart1_default: uart1_default {
         group1 {
-            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>,
-                    <NRF_PSEL(TWIM_SDA, 1, 0)>;
+            psels = <NRF_PSEL(UART_TX, 0, 26)>, 
+                    <NRF_PSEL(UART_RX, 1, 0)>;
         };
     };
 
-    i2c1_sleep: i2c0_sleep {
+    uart1_sleep: uart1_sleep {
         group1 {
-            psels = <NRF_PSEL(TWIM_SCL, 0, 26)>,
-                    <NRF_PSEL(TWIM_SDA, 1, 0)>;
-                    low-power-enable;
+            psels = <NRF_PSEL(UART_TX, 0, 26)>,
+                    <NRF_PSEL(UART_RX, 1, 0)>;
+            low-power-enable;
         };
     };
-
 };
 
 
@@ -143,13 +146,13 @@
     pinctrl-names = "default", "sleep";
     label = "PWM_3";
 };
-
-&i2c1 {
-    compatible = "nordic,nrf-twim";
+&uart1 {
     status = "okay";
-    pinctrl-0 = <&i2c1_default>;
-    pinctrl-1 = <&i2c1_sleep>;
+    current-speed = <115200>;
+    pinctrl-0 = <&uart1_default>;
+    pinctrl-1 = <&uart1_sleep>;
     pinctrl-names = "default", "sleep";
 };
+
 
 
