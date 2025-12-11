@@ -6,20 +6,23 @@
 #include "pwm.h"
 #include "motor_controls.h"
 #include "serial.h"
-#include <zephyr/kernel.h>
-#include <zephyr/sys/printk.h>
-#include <zephyr/drivers/gpio.h>
+#include "gatekeeper.h"
 #include <zephyr/device.h>
 #include <zephyr/drivers/uart.h>
-
+#include "car_control.h"
 
 int main(void)
 {
-    Serial_begin();
     motors_start();
-    while (1) {
-        uart_send_str("BACKWARD\n");
-    }
+    Serial_begin(); 
+    car_controller_init();
 
+    while (1) {
+
+
+        car_controller_check_timeout();
+        k_msleep(100);
+    };
     return 0;
 }
+
