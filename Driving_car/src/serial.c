@@ -12,7 +12,7 @@ static const struct device *uart_dev = DEVICE_DT_GET(DT_NODELABEL(uart1));
 static char rx_buffer[128];
 static int rx_pos = 0;
 static int current_speed = 100;
-static char last_command = 'A'; 
+static char last_command = 'S'; 
 
 static void serial_cb(const struct device *dev, void *user_data){
     uint8_t c;

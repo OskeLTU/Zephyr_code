@@ -4,6 +4,8 @@
 #include "car_control.h"
 #include "receiver_ble.h"
 #include "motor_controls.h"
+#include "gatekeeper.h"
+
 
 #define TIMEOUT_MS 1000      /* Stopp motorene hvis ingen data på 1 sekund */
 
@@ -22,16 +24,25 @@ static const char *dir_name(Motor_direction d)
         case Right: return "RIGHT";
         case Left: return "LEFT";
         case Stop: return "STOP";
+        case Idle: return "IDLE";
         default: return "?";
     }
 }
 
 static void on_drive_data(Motor_direction dir, uint8_t speed)
 {
-    current_dir = dir;
-    current_speed = speed;
     last_rx = k_uptime_get();
-    motors_on = true;
+
+    
+
+    if(dir == Idle){
+        // printk("Ignoring IDLE command.\n");
+        // Stop_motors();
+        motors_on = false;
+        return;
+    }
+
+    bluetouth_signal_recived();
 
     printk("[RX] %-5s %3d%%\n", dir_name(dir), speed);
 
@@ -80,6 +91,7 @@ void car_controller_check_timeout(void){
             printk("[TIMEOUT] Stopping\n");
             Stop_motors();
             motors_on = false;
+            
         }
     }
 }

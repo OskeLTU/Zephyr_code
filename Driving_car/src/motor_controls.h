@@ -8,7 +8,8 @@ typedef enum {
     Rotate_Left,
     Right,
     Left,
-    Stop
+    Stop,
+    Idle
 }Motor_direction;
 
 typedef enum{

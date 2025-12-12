@@ -2,11 +2,12 @@
 #include <zephyr/sys/printk.h>
 #include "gatekeeper.h"
 #include "motor_controls.h"
+#include "serial.h"
 
 static bool bt_active = false;
 static int64_t bt_timer_until_timeout = 0;
 
-#define CONTROL_TIMEOUT_MS 30
+#define CONTROL_TIMEOUT_MS 500
 
 void bluetouth_signal_recived(){
     bt_timer_until_timeout = k_uptime_get();
@@ -14,6 +15,14 @@ void bluetouth_signal_recived(){
         printk("Bluetooth control activated.\n");
         bt_active = true;
         
+    }
+}
+
+void bluetouth_release(){
+    if(bt_active){
+        bt_active = false;
+        printk("Bluetooth control released.\n");
+        execute_serial_last_action();
     }
 }
 

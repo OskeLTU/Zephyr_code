@@ -13,16 +13,24 @@
 
 int main(void)
 {
-    motors_start();
+    
     Serial_begin(); 
     car_controller_init();
+    car_controller_start();
 
     while (1) {
 
 
         car_controller_check_timeout();
-        k_msleep(100);
+        timeout_control();
+        k_msleep(50);
     };
     return 0;
 }
 
+// int main(){
+//     Serial_begin();
+//     uart_send_str("F\n");
+//     printk("Sent\n");
+//     return 0;
+// }
