@@ -1,3 +1,6 @@
+// This File has been writen by Wang King Son
+// link to his github: https://github.com/WangKKing3
+
 #ifndef RECEIVER_BLE_H
 #define RECEIVER_BLE_H
 

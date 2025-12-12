@@ -1,3 +1,8 @@
+
+// This File has been writen by Wang King Son
+// link to his github: https://github.com/WangKKing3
+// Note: This file does use the motor_controls, pwm, and gatekeeper libraries that were written by Oskaras Dauneckas(ME)
+
 #include <zephyr/kernel.h>
 #include <zephyr/sys/printk.h>
 
