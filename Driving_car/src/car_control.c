@@ -3,7 +3,7 @@
 * Link to his github: https://github.com/WangKKing3
 * 
 * Acknowledgement:
-* This file does use the motor_controls, pwm, and gatekeeper libraries that were written by Oskaras Dauneckas(ME)
+* This file does use the motor_controls, pwm, and gatekeeper libraries that were produced by Oskaras Dauneckas
 */
 
 #include <zephyr/kernel.h>
