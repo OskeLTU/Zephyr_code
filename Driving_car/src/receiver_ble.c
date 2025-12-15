@@ -1,6 +1,11 @@
-// Receiver over BLRE - receives Motor_direction commands via BLE notifications
-// This File has been writen by Wang King Son
-// link to his github: https://github.com/WangKKing3
+/*
+* Author: Wang King Son
+* Link to his github: https://github.com/WangKKing3
+* 
+* Acknowledgement:
+* This file includes example code derrived from the Zephyr Project 
+* Pong sample
+*/
 
 #include "receiver_ble.h"
 #include <zephyr/kernel.h>
