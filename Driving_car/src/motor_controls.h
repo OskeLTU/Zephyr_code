@@ -4,14 +4,19 @@
 typedef enum {
     Forward,
     Backward,
-    Stop
+    Rotate_Right,
+    Rotate_Left,
+    Right,
+    Left,
+    Stop,
+    Idle
 }Motor_direction;
 
 typedef enum{
-    Motor_A_Front,
-    Motor_A_Back,
-    Motor_B_Front,
-    Motor_B_Back
+    Motor_Left_Front,
+    Motor_Left_Back,
+    Motor_Right_Front,
+    Motor_Right_Back
 }Motor_name;
 
 int motors_start();

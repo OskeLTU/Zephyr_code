@@ -36,7 +36,11 @@
         };
     };
 };
-    
+
+&i2c1 { status = "disabled"; };
+&spi1 { status = "disabled"; };
+&adc { status = "disabled"; };
+
 
 
 
@@ -96,6 +100,21 @@
             low-power-enable;
         };
     };
+
+    uart1_default: uart1_default {
+        group1 {
+            psels = <NRF_PSEL(UART_TX, 0, 26)>, 
+                    <NRF_PSEL(UART_RX, 1, 0)>;
+        };
+    };
+
+    uart1_sleep: uart1_sleep {
+        group1 {
+            psels = <NRF_PSEL(UART_TX, 0, 26)>,
+                    <NRF_PSEL(UART_RX, 1, 0)>;
+            low-power-enable;
+        };
+    };
 };
 
 
@@ -127,4 +146,13 @@
     pinctrl-names = "default", "sleep";
     label = "PWM_3";
 };
+&uart1 {
+    status = "okay";
+    current-speed = <115200>;
+    pinctrl-0 = <&uart1_default>;
+    pinctrl-1 = <&uart1_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
+
 
