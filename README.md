@@ -1,0 +1,1 @@
+A Zephyr RTOS library for the BBC micro:bit v2, specifically configured for use with a T-Shaped GPIO Expansion Board. This library supports PWM signal generation alongside concurrent, autonomous signal reception from a secondary micro:bit and additional serial streams.
